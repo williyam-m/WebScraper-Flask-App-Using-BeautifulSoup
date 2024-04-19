@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Scarper</title>
+    <style>
+        .submit {
+  border: 0;
+  padding: 10px 100px;
+  background: #00ccff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.input {
+  border: 0;
+  padding: 10px 50px;
+  background: #00ccff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+        .header {
+        height: 50px;
+        top:0;
+        background: #00ccff;
+        }
+
+        .label {
+        border-radius: 10px;
+        padding: 10px 10px;
+        color : black;
+        background: #00ccff;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <div class="header">
+    <h2>Web Scraper</h2>
+    </div>
+    <div>
+        <br><br><br>
+        <form action="/scrape" method="POST">
+                <input class="input" name="url" type="url" placeholder="Enter URL">
+                <br><br><br>
+                <button class="submit" type="submit">SUBMIT</button>
+        </form>
+    </div>
+    <br><br><br>
+    {% if value.sorry == "try other url" %}
+    <b>{{ value }}</b><br><br>
+
+   {% elif value != "" %}
+    <div align="center">
+        <span class= "label">Html Content</span><br><br>
+        <b>{{ value.html_content }}</b><br><br>
+        <span class= "label">Text Content</span><br><br>
+        <b>{{ value.text_content }}</b><br><br>
+        <span class= "label">Links</span><br><br>
+        <b>{{ value.links }}</b><br><br>
+        <span class= "label">Images</span><br><br>
+        <b>{{ value.images }}</b><br><br>
+        <span class= "label">Videos</span><br><br>
+        <b>{{ value.videos }}</b><br><br>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
